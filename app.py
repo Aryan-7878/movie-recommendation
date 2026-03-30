@@ -94,7 +94,7 @@ def poster_grid(cards, cols=6, key_prefix="grid"):
             poster = m.get("poster_url")
 
             with colset[c]:
-                if poster:
+                if isinstance(poster, str) and poster.startswith("http"):
                     st.image(poster, use_container_width=True)
                 else:
                     st.write("🖼️ No poster")
